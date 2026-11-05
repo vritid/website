@@ -80,6 +80,9 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 .hl:nth-child(2){background:var(--accent-soft);}
 .hl:nth-child(3){background:var(--mint);}
 .hl:nth-child(4){background:var(--sand);}
+a.hl{text-decoration:none;color:inherit;display:block;transition:transform .15s,box-shadow .15s;}
+a.hl:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
+.hl .more{display:block;margin-top:8px;color:var(--accent);font-size:14px;}
 .hl small{display:block;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
 .hl h3{font-weight:800;font-size:22px;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px;}
 .hl p{font-size:15px;line-height:1.45;color:#2c3648;}
@@ -87,7 +90,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 
 
 /* CAROUSEL */
-.gallery{padding:44px 0 10px;}
+.gallery{padding:90px 0 0;}
 .gal-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
 .gal-head h3{font-weight:800;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.03em;line-height:1.05;}
 .gal-head h3 .it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent);}
@@ -120,7 +123,10 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 .proj:hover{transform:translate(3px,3px);box-shadow:5px 5px 0 var(--ink);}
 .proj-top{height:200px;border-bottom:2px solid var(--ink);position:relative;overflow:hidden;display:grid;place-items:center;}
 .proj-top img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
-.jit-top{background:#16233a;}
+.proj-top.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;place-items:unset;background:#16233a;scrollbar-width:none;}
+.proj-top.shots::-webkit-scrollbar{display:none;}
+.proj-top.shots img{flex:0 0 100%;scroll-snap-align:start;object-fit:contain;object-position:center;}
+.proj-top.shots::after{content:"swipe →";position:absolute;right:12px;bottom:10px;font-size:12px;font-weight:700;background:var(--card);border:2px solid var(--ink);border-radius:99px;padding:1px 10px;pointer-events:none;}
 .jit-tiles{display:grid;grid-template-columns:repeat(3,64px);grid-auto-rows:64px;gap:6px;transform:rotate(-4deg);}
 .jit-tiles i{border-radius:8px;display:block;}
 .jit-tiles i:nth-child(1){background:var(--accent);grid-column:span 2;}
@@ -266,29 +272,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
       <div class="hl rv"><small>Honour</small><h3>Governor General's Medalist</h3><p>Recognized for academic excellence at the University of Toronto.</p></div>
       <div class="hl rv"><small>Hackathon win</small><h3>Best Project, FinTech category</h3><p>GigIT won it at NewHacks 2025. We built it in 24 hours.</p></div>
       <div class="hl rv"><small>Research</small><h3>Collaborating with Oxford</h3><p>Designing and evaluating an AR intervention for emotional intelligence.</p></div>
-      <div class="hl rv"><small>Off the clock</small><h3>FIFA World Cup 2026</h3><p>Picked for the ceremonial flag bearing team, and volunteered at every Toronto match.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="gallery" id="worldcup">
-  <div class="wrap">
-    <div class="gal-head rv">
-      <h3>FIFA World Cup 2026, <span class="it">Toronto</span></h3>
-      <div class="gal-ctrl">
-        <button type="button" data-dir="-1" aria-label="Previous photo">←</button>
-        <button type="button" data-dir="1" aria-label="Next photo">→</button>
-      </div>
-    </div>
-    <div class="gal-track" tabindex="0" role="region" aria-label="World Cup photos">
-      <figure>
-        <img src="assets/fifa-kit.jpg" alt="Purple volunteer jacket with a Benevol armband, FIFA World Cup 2026 tournament pass for the Ceremonies team, a Toronto pin and a player card" width="1100" height="812">
-        <figcaption>My volunteer kit: Ceremonies team, Toronto.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/fifa-pitch.jpg" alt="Pitchside at a World Cup match in Toronto, with ceremony volunteers on the field behind a Portugal player" width="541" height="996">
-        <figcaption>Pitchside before kickoff.</figcaption>
-      </figure>
+      <a class="hl rv" href="#worldcup"><small>Off the clock</small><h3>FIFA World Cup 2026</h3><p>Picked for the ceremonial flag bearing team, and volunteered at every Toronto match. <b class="more">See photos ↓</b></p></a>
     </div>
   </div>
 </section>
@@ -317,7 +301,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
     <div class="proj-grid">
 
       <a class="proj rv" href="https://github.com/vritid/Just-in-Time" target="_blank" rel="noopener">
-        <div class="proj-top jit-top"><div class="jit-tiles"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="proj-top shots"><img src="assets/jit-recipe.jpg" alt="Just in Time device screen showing a generated recipe chooser with an effort slider" loading="lazy"><img src="assets/jit-focus.jpg" alt="Just in Time device screen showing a generated step by step cooking view" loading="lazy"></div>
         <div class="proj-body">
           <div class="proj-kicker">Generative UI · Multi-agent</div>
           <h3>Just in Time</h3>
@@ -477,6 +461,28 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="worldcup">
+  <div class="wrap">
+    <div class="gal-head rv">
+      <div><div class="eyebrow">Off the clock</div><h3>FIFA World Cup 2026, <span class="it">Toronto</span></h3></div>
+      <div class="gal-ctrl">
+        <button type="button" data-dir="-1" aria-label="Previous photo">←</button>
+        <button type="button" data-dir="1" aria-label="Next photo">→</button>
+      </div>
+    </div>
+    <div class="gal-track" tabindex="0" role="region" aria-label="World Cup photos">
+      <figure>
+        <img src="assets/fifa-kit.jpg" alt="Purple volunteer jacket with a Benevol armband, FIFA World Cup 2026 tournament pass for the Ceremonies team, a Toronto pin and a player card" width="1100" height="812">
+        <figcaption>My volunteer kit: Ceremonies team, Toronto.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/fifa-pitch.jpg" alt="Pitchside at a World Cup match in Toronto, with ceremony volunteers on the field behind a Portugal player" width="541" height="996">
+        <figcaption>Pitchside before kickoff.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
