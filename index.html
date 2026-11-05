@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vriti Dahiya</title>
-<meta name="description" content="Vriti Dahiya, CS student at the University of Toronto and Governor General's Medalist. Building with LLMs, multi-agent systems and adaptive interfaces, with research at Oxford and AI engineering at Co-operators.">
+<meta name="description" content="Vriti Dahiya, CS student at the University of Toronto and Governor General's Medalist. Building AI that reshapes software around the person using it: LLMs, multi-agent systems and adaptive interfaces, with accessibility at the centre.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -83,6 +83,19 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 .hl small{display:block;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
 .hl h3{font-weight:800;font-size:22px;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px;}
 .hl p{font-size:15px;line-height:1.45;color:#2c3648;}
+
+
+/* THESIS */
+.thesis{padding:56px 0 20px;}
+.thesis-box{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:start;}
+.thesis h2{font-size:clamp(34px,5vw,60px);line-height:1;margin-bottom:0;}
+.thesis h2 .it{color:var(--accent);}
+.thesis .lead{font-size:19px;line-height:1.6;color:#2f394b;margin-top:22px;max-width:560px;}
+.threads{display:flex;flex-direction:column;gap:14px;}
+.thread{border:2px solid var(--ink);border-radius:var(--r);background:var(--card);padding:16px 20px;box-shadow:4px 4px 0 var(--ink);}
+.thread small{display:block;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+.thread p{font-size:15.5px;line-height:1.45;color:#2f394b;}
+@media(max-width:820px){.thesis-box{grid-template-columns:1fr;gap:28px;}}
 
 /* PROJECTS */
 .projects{padding-top:60px;}
@@ -215,7 +228,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
   <div class="status"><i></i>Open to Summer 2027 opportunities and beyond</div>
   <h1>Vriti<br><span class="it">Dahiya</span></h1>
   <div class="hero-row">
-    <p class="lede">CS student at the <mark>University of Toronto</mark> building with LLMs, multi-agent systems and adaptive interfaces. I ship full stack AI products, I love research, and I'm aiming for big tech.</p>
+    <p class="lede">CS student at the <mark>University of Toronto</mark> working on <mark>software that adapts to people</mark>. I use LLMs and multi-agent systems to rebuild interfaces around what each person needs, with accessibility at the centre.</p>
     <div class="cta">
       <a class="btn main" href="#projects">See my work ↓</a>
       <a class="btn" href="https://github.com/vritid" target="_blank" rel="noopener">GitHub ↗</a>
@@ -226,8 +239,8 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 
 <div class="marquee" aria-hidden="true">
   <div>
-    LLM systems <em>✦</em> Multi-agent pipelines <em>✦</em> Generative UI <em>✦</em> Adaptive interfaces <em>✦</em> Full stack AI <em>✦</em> Computational vision <em>✦</em> Research <em>✦</em>
-    LLM systems <em>✦</em> Multi-agent pipelines <em>✦</em> Generative UI <em>✦</em> Adaptive interfaces <em>✦</em> Full stack AI <em>✦</em> Computational vision <em>✦</em> Research <em>✦</em>
+    Adaptive interfaces <em>✦</em> Accessibility <em>✦</em> Generative UI <em>✦</em> Multi-agent systems <em>✦</em> LLM systems <em>✦</em> Human-centered AI <em>✦</em> Computational vision <em>✦</em>
+    Adaptive interfaces <em>✦</em> Accessibility <em>✦</em> Generative UI <em>✦</em> Multi-agent systems <em>✦</em> LLM systems <em>✦</em> Human-centered AI <em>✦</em> Computational vision <em>✦</em>
   </div>
 </div>
 
@@ -238,6 +251,23 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
       <div class="hl rv"><small>Hackathon win</small><h3>Best Project, FinTech category</h3><p>GigIT won it at NewHacks 2025. We built it in 24 hours.</p></div>
       <div class="hl rv"><small>Research</small><h3>Collaborating with Oxford</h3><p>Designing and evaluating an AR intervention for emotional intelligence.</p></div>
       <div class="hl rv"><small>Off the clock</small><h3>FIFA World Cup 2026</h3><p>Picked for the ceremonial flag bearing team, and volunteered at every Toronto match.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="thesis" id="thread">
+  <div class="wrap">
+    <div class="eyebrow rv">What I'm building toward</div>
+    <div class="thesis-box">
+      <div class="rv">
+        <h2>Interfaces that <span class="it">rebuild themselves</span> around the person using them.</h2>
+        <p class="lead">Most software is built once for an average user. I want models and agents to change the interface on the fly: bigger, calmer layouts for someone with low vision, fewer steps when attention is limited, a different input style when hands are busy. Done well, that makes accessibility the default instead of a setting you have to find. My work is about making it reliable, readable and measurable.</p>
+      </div>
+      <div class="threads rv">
+        <div class="thread"><small>Build</small><p>Just in Time: LLM agents that generate and restyle a live interface from what a user says they need.</p></div>
+        <div class="thread"><small>Measure</small><p>Oxford: an evaluation framework that tests whether an adaptive, immersive intervention actually changes behavior.</p></div>
+        <div class="thread"><small>Understand</small><p>BWLab: models of what people notice and remember in an image, so adaptation follows how people really see.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -253,11 +283,11 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
         <div class="proj-body">
           <div class="proj-kicker">Generative UI · Multi-agent</div>
           <h3>Just in Time</h3>
-          <p>Reshapes interfaces that already exist to match what a user says they need. A team of LLM agents generates the surface live, and it runs on a small Raspberry Pi device.</p>
+          <p>Reshapes interfaces that already exist to match what a user says they need. A team of LLM agents generates the surface live, so a person who needs bigger text, higher contrast or a simpler layout can just ask. It runs on a small Raspberry Pi device.</p>
           <ul>
             <li>Four agents with one job each: pick the layout, fill the content, choose the theme, then polish it</li>
             <li>Agents output constrained, schema validated specs, so generated UI stays predictable</li>
-            <li>Contrast checks on every generated palette, plus a Python harness that measures what the model can and cannot do</li>
+            <li>Contrast checks on every generated palette, so adapted interfaces stay readable, plus a Python harness that measures what the model can and cannot do</li>
           </ul>
           <div class="tags"><span>LLM agents</span><span>Generative UI</span><span>TypeScript</span><span>React</span><span>Python</span></div>
           <span class="btn">View on GitHub ↗</span>
@@ -417,7 +447,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
     <h2 class="rv">Hi, I'm <span class="it">Vriti.</span></h2>
     <div class="about-grid">
       <div class="rv">
-        <p>I'm a CS student at UofT who loves building with LLMs. Right now I'm deep in <strong>generative UI and adaptive interfaces</strong>, working on systems where multiple agents cooperate to reshape software around what a person actually needs. At Co-operators I build LLM backends, APIs and frontends that ship to production.</p>
+        <p>I'm a CS student at UofT, and one idea runs through everything I do: <strong>software should adapt to the person, not the other way around</strong>. I'm working on how LLMs and multi-agent systems can change an interface on the fly, especially for accessibility needs. At Co-operators I build LLM backends, APIs and frontends that ship to production.</p>
         <p>I care about testing models as hard as I build them. My research goes into computational vision and aesthetics, especially personalized, context aware systems that adapt in real time. Before CS, I spent five years in the <strong>Royal Canadian Army Cadets</strong>, which taught me more about discipline and teamwork under pressure than anything else.</p>
         <p>Away from the laptop I'm a big Real Madrid fan, and I got to walk out with the players at the 2026 World Cup here in Toronto. I'm always working on something.</p>
         <div class="toolbox">
@@ -437,7 +467,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
         <div class="nowbox">
           <h4>Right now</h4>
           <ul>
-            <li><b>Exploring</b>: generative UI, adaptive interfaces and multi-agent systems</li>
+            <li><b>Exploring</b>: how agents can reshape UI for accessibility needs</li>
             <li><b>Researching</b>: ML pipelines at BWLab</li>
             <li><b>Contributing</b>: MDN Web Docs</li>
             <li><b>Next up</b>: Technology internship at Deloitte</li>
