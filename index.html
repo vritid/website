@@ -85,6 +85,22 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 .hl p{font-size:15px;line-height:1.45;color:#2c3648;}
 
 
+
+/* CAROUSEL */
+.gallery{padding:44px 0 10px;}
+.gal-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap;}
+.gal-head h3{font-weight:800;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.03em;line-height:1.05;}
+.gal-head h3 .it{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent);}
+.gal-ctrl{display:flex;gap:10px;}
+.gal-ctrl button{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:var(--card);box-shadow:3px 3px 0 var(--ink);font:700 20px var(--sans);color:var(--ink);cursor:pointer;transition:transform .12s,box-shadow .12s;}
+.gal-ctrl button:hover{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink);}
+.gal-ctrl button:focus-visible,.gal-track:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.gal-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 18px 2px;scrollbar-width:thin;}
+.gal-track figure{flex:0 0 auto;scroll-snap-align:start;margin:0;}
+.gal-track img{display:block;height:400px;width:auto;max-width:none;border:2px solid var(--ink);border-radius:var(--r);box-shadow:5px 5px 0 var(--ink);background:var(--sand);}
+.gal-track figcaption{margin-top:12px;font-size:14px;color:var(--muted);max-width:360px;}
+@media(max-width:820px){.gal-track img{height:300px;}}
+
 /* THESIS */
 .thesis{padding:56px 0 20px;}
 .thesis-box{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:start;}
@@ -251,6 +267,28 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
       <div class="hl rv"><small>Hackathon win</small><h3>Best Project, FinTech category</h3><p>GigIT won it at NewHacks 2025. We built it in 24 hours.</p></div>
       <div class="hl rv"><small>Research</small><h3>Collaborating with Oxford</h3><p>Designing and evaluating an AR intervention for emotional intelligence.</p></div>
       <div class="hl rv"><small>Off the clock</small><h3>FIFA World Cup 2026</h3><p>Picked for the ceremonial flag bearing team, and volunteered at every Toronto match.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="worldcup">
+  <div class="wrap">
+    <div class="gal-head rv">
+      <h3>FIFA World Cup 2026, <span class="it">Toronto</span></h3>
+      <div class="gal-ctrl">
+        <button type="button" data-dir="-1" aria-label="Previous photo">←</button>
+        <button type="button" data-dir="1" aria-label="Next photo">→</button>
+      </div>
+    </div>
+    <div class="gal-track" tabindex="0" role="region" aria-label="World Cup photos">
+      <figure>
+        <img src="assets/fifa-kit.jpg" alt="Purple volunteer jacket with a Benevol armband, FIFA World Cup 2026 tournament pass for the Ceremonies team, a Toronto pin and a player card" width="1100" height="812">
+        <figcaption>My volunteer kit: Ceremonies team, Toronto.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/fifa-pitch.jpg" alt="Pitchside at a World Cup match in Toronto, with ceremony volunteers on the field behind a Portugal player" width="541" height="996">
+        <figcaption>Pitchside before kickoff.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -458,6 +496,13 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.gallery').forEach(g=>{
+  const t=g.querySelector('.gal-track');
+  g.querySelectorAll('[data-dir]').forEach(b=>b.addEventListener('click',()=>{
+    const f=t.querySelector('figure');
+    t.scrollBy({left:(+b.dataset.dir)*(f?f.offsetWidth+18:320),behavior:'smooth'});
+  }));
+});
 </script>
 </body>
 </html>
