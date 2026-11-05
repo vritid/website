@@ -4,22 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vriti Dahiya</title>
-<meta name="description" content="Vriti Dahiya — CS student at UofT building software, ML research, open source. Real Madrid forever.">
+<meta name="description" content="Vriti Dahiya, CS student at the University of Toronto and Governor General's Medalist. Applying machine learning to fintech and insurance, with research at Oxford and AI engineering at Co-operators.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#fff4e6;
-  --ink:#1b1220;
-  --pink:#ff4fa0;
-  --pink-soft:#ffd3e8;
-  --lime:#c9f26b;
-  --sky:#a8d8ff;
-  --sun:#ffd24a;
+  --bg:#f5f3ee;
+  --ink:#0f1b2d;
+  --accent:#2a4fd6;
+  --accent-soft:#e2e9ff;
+  --amber:#f0b449;
+  --amber-soft:#fbeccb;
+  --mint:#c5ebd8;
+  --sand:#ebe6da;
   --card:#ffffff;
-  --muted:#6b5f73;
+  --muted:#5d6676;
   --sans:'Bricolage Grotesque',system-ui,sans-serif;
   --serif:'Instrument Serif',Georgia,serif;
   --r:22px;
@@ -27,133 +28,172 @@
 html{scroll-behavior:smooth;overflow-x:clip;}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased;}
 a{color:inherit;}
-::selection{background:var(--pink);color:#fff;}
+::selection{background:var(--accent);color:#fff;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:50;background:rgba(255,244,230,.85);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink);}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,243,238,.88);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink);}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
 .logo{font-family:var(--serif);font-style:italic;font-size:28px;text-decoration:none;line-height:1;}
-.logo b{color:var(--pink);font-style:normal;}
+.logo b{color:var(--accent);font-style:normal;}
 .links{display:flex;gap:6px;}
 .links a{text-decoration:none;font-weight:500;font-size:15px;padding:6px 14px;border-radius:99px;border:2px solid transparent;transition:.15s;}
 .links a:hover{border-color:var(--ink);background:var(--card);}
 .links a.hire{background:var(--ink);color:var(--bg);}
-.links a.hire:hover{background:var(--pink);border-color:var(--ink);color:var(--ink);}
+.links a.hire:hover{background:var(--accent);border-color:var(--ink);color:#fff;}
 
 /* HERO */
 .hero{padding:72px 0 56px;position:relative;}
-.status{display:inline-flex;align-items:center;gap:8px;background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:5px 14px 5px 10px;font-size:14px;font-weight:500;margin-bottom:28px;}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--mint);border:2px solid var(--ink);border-radius:99px;padding:5px 14px 5px 10px;font-size:14px;font-weight:500;margin-bottom:28px;}
 .status i{width:9px;height:9px;border-radius:50%;background:var(--ink);animation:blink 1.8s infinite;}
 @keyframes blink{50%{opacity:.2}}
 h1{font-weight:800;font-size:clamp(64px,15vw,184px);line-height:.84;letter-spacing:-.05em;}
-h1 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.03em;color:var(--pink);}
+h1 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.03em;color:var(--accent);}
 .hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:44px;align-items:end;}
-.lede{font-size:clamp(20px,2.4vw,27px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:560px;}
-.lede mark{background:var(--pink-soft);padding:0 6px;border-radius:6px;}
+.lede{font-size:clamp(20px,2.4vw,26px);line-height:1.38;font-weight:500;letter-spacing:-.01em;max-width:600px;}
+.lede mark{background:var(--accent-soft);padding:0 6px;border-radius:6px;}
 .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;}
 .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:16px;padding:13px 22px;border-radius:99px;border:2px solid var(--ink);background:var(--card);box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s;}
 .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
-.btn.main{background:var(--pink);}
-.sticker{position:absolute;right:0;top:56px;width:150px;height:150px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;text-align:center;font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.05;transform:rotate(12deg);box-shadow:5px 5px 0 var(--ink);animation:wob 6s ease-in-out infinite;}
-.sticker span{font-size:34px;display:block;font-style:normal;}
-@keyframes wob{50%{transform:rotate(-6deg) scale(1.04)}}
+.btn.main{background:var(--accent);color:#fff;}
+.seal{position:absolute;right:28px;top:56px;width:156px;height:156px;border-radius:50%;background:var(--amber);border:2px solid var(--ink);display:grid;place-items:center;text-align:center;font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.05;transform:rotate(10deg);box-shadow:5px 5px 0 var(--ink);animation:wob 6s ease-in-out infinite;padding:14px;}
+.seal span{display:block;font-family:var(--sans);font-style:normal;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px;}
+@keyframes wob{50%{transform:rotate(-5deg) scale(1.04)}}
 
 /* MARQUEE */
 .marquee{border-block:2px solid var(--ink);background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;transform:rotate(-1.2deg);margin:36px -20px;}
-.marquee div{display:inline-block;padding:14px 0;font-family:var(--serif);font-style:italic;font-size:30px;animation:slide 28s linear infinite;}
-.marquee em{color:var(--pink);font-style:normal;margin:0 22px;}
+.marquee div{display:inline-block;padding:14px 0;font-family:var(--serif);font-style:italic;font-size:30px;animation:slide 40s linear infinite;}
+.marquee em{color:var(--amber);font-style:normal;margin:0 22px;}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* SECTIONS */
 section{padding:84px 0;}
-.eyebrow{font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:10px;}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
 h2{font-weight:800;font-size:clamp(40px,6.5vw,76px);line-height:.95;letter-spacing:-.04em;margin-bottom:44px;}
 h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em;}
 
+/* HIGHLIGHTS */
+.highlights{padding:36px 0 20px;}
+.hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.hl{border:2px solid var(--ink);border-radius:var(--r);padding:22px 20px 22px;background:var(--card);box-shadow:5px 5px 0 var(--ink);}
+.hl:nth-child(1){background:var(--amber-soft);}
+.hl:nth-child(2){background:var(--accent-soft);}
+.hl:nth-child(3){background:var(--mint);}
+.hl:nth-child(4){background:var(--sand);}
+.hl small{display:block;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.hl h3{font-weight:800;font-size:22px;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px;}
+.hl p{font-size:15px;line-height:1.45;color:#2c3648;}
 
 /* PROJECTS */
-.projects{padding-top:40px;}
+.projects{padding-top:60px;}
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
 .proj{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:2px solid var(--ink);border-radius:28px;background:var(--card);box-shadow:8px 8px 0 var(--ink);overflow:hidden;transition:transform .15s,box-shadow .15s;}
 .proj:hover{transform:translate(3px,3px);box-shadow:5px 5px 0 var(--ink);}
-.proj-top{height:230px;border-bottom:2px solid var(--ink);position:relative;overflow:hidden;display:grid;place-items:center;}
+.proj-top{height:200px;border-bottom:2px solid var(--ink);position:relative;overflow:hidden;display:grid;place-items:center;}
 .proj-top img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
-.jit-top{background:#2a1233;}
+.jit-top{background:#16233a;}
 .jit-tiles{display:grid;grid-template-columns:repeat(3,64px);grid-auto-rows:64px;gap:6px;transform:rotate(-4deg);}
 .jit-tiles i{border-radius:8px;display:block;}
-.jit-tiles i:nth-child(1){background:var(--pink);grid-column:span 2;}
-.jit-tiles i:nth-child(2){background:var(--sun);}
-.jit-tiles i:nth-child(3){background:var(--sky);}
-.jit-tiles i:nth-child(4){background:var(--lime);}
-.jit-tiles i:nth-child(5){background:#7c4dff;grid-column:span 2;}
+.jit-tiles i:nth-child(1){background:var(--accent);grid-column:span 2;}
+.jit-tiles i:nth-child(2){background:var(--amber);}
+.jit-tiles i:nth-child(3){background:#8fb4ff;}
+.jit-tiles i:nth-child(4){background:var(--mint);}
+.jit-tiles i:nth-child(5){background:#e8ecf5;grid-column:span 2;}
+.gig-top{background:var(--mint);}
+.gig-doc{display:flex;align-items:center;gap:14px;transform:rotate(-2deg);}
+.gig-doc .page{width:78px;height:100px;background:#fff;border:2px solid var(--ink);border-radius:8px;padding:12px 9px;display:flex;flex-direction:column;gap:7px;}
+.gig-doc .page i{display:block;height:5px;border-radius:3px;background:var(--ink);opacity:.8;}
+.gig-doc .page i:nth-child(2){width:70%;opacity:.35;}
+.gig-doc .page i:nth-child(3){width:85%;opacity:.35;}
+.gig-doc .arrow{font-weight:800;font-size:30px;}
+.gig-doc .report{width:112px;background:var(--ink);color:#fff;border-radius:10px;padding:12px;font-size:12px;line-height:1.3;font-weight:700;}
+.gig-doc .report b{display:block;color:var(--amber);font-size:22px;letter-spacing:-.02em;}
+.rostr-top{background:var(--sand);}
+.rostr-card{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:14px 18px;transform:rotate(1.5deg);box-shadow:4px 4px 0 var(--ink);min-width:230px;}
+.rostr-card small{display:block;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.rostr-card b{display:block;font-size:19px;line-height:1.2;margin:4px 0 8px;}
+.rostr-card span{display:inline-block;font-size:12px;font-weight:700;background:var(--accent);color:#fff;border-radius:99px;padding:2px 10px;}
 .proj-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1;}
-.proj-kicker{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);}
-.proj h3{font-weight:800;font-size:34px;letter-spacing:-.03em;line-height:1;margin:6px 0 12px;}
-.proj p{color:#3d3345;font-size:16.5px;}
-.proj ul{margin:14px 0 0 18px;color:#3d3345;font-size:15.5px;}
+.proj-kicker{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
+.proj h3{font-weight:800;font-size:32px;letter-spacing:-.03em;line-height:1;margin:6px 0 12px;}
+.proj p{color:#2f394b;font-size:16.5px;}
+.proj ul{margin:14px 0 0 18px;color:#2f394b;font-size:15.5px;}
 .proj ul li{margin-bottom:4px;}
 .proj .tags{margin-top:auto;padding-top:18px;}
 .proj .btn{margin-top:20px;align-self:flex-start;font-size:15px;padding:10px 18px;}
-@media(max-width:820px){.proj-grid{grid-template-columns:1fr;}.proj-top{height:190px;}}
+.award{display:inline-block;margin-top:12px;font-size:13px;font-weight:700;background:var(--amber);border:2px solid var(--ink);border-radius:99px;padding:2px 12px;align-self:flex-start;}
 
 /* WORK */
 .job{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:30px 0;border-top:2px solid var(--ink);}
 .job:last-child{border-bottom:2px solid var(--ink);}
 .when{font-weight:500;color:var(--muted);font-size:15px;padding-top:6px;}
 .job h3{font-weight:800;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.03em;line-height:1.05;}
-.job .role{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--pink);margin:2px 0 10px;}
-.job p{max-width:640px;color:#3d3345;font-size:16.5px;}
+.job .role{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--accent);margin:2px 0 10px;}
+.job p{max-width:660px;color:#2f394b;font-size:16.5px;}
+.job p + p{margin-top:10px;}
+.job ul{max-width:660px;margin:10px 0 0 20px;color:#2f394b;font-size:16.5px;}
+.job ul li{margin-bottom:6px;}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
 .tags span{font-size:13px;font-weight:500;border:1.5px solid var(--ink);border-radius:99px;padding:2px 12px;background:var(--card);}
-.job.now h3::after{content:'now';font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:2px 10px;margin-left:12px;vertical-align:middle;}
-.job.soon h3::after{content:'2026';font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;background:var(--sky);border:2px solid var(--ink);border-radius:99px;padding:2px 10px;margin-left:12px;vertical-align:middle;}
+.job h3[data-badge]::after{content:attr(data-badge);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--ink);border-radius:99px;padding:2px 10px;margin-left:12px;vertical-align:middle;white-space:nowrap;}
+.job h3.b-now::after{background:var(--mint);}
+.job h3.b-soon::after{background:var(--amber);}
+.job h3.b-res::after{background:#fff;}
+.job.feature{background:var(--accent-soft);margin:14px -24px;padding:30px 24px;border-radius:var(--r);border:2px solid var(--ink);}
 
 /* ABOUT / LOVES */
 .about{background:var(--ink);color:var(--bg);border-radius:40px;margin:0 12px;}
-.about .wrap{padding-block:0;}
-.about h2 .it{color:var(--pink);}
+.about h2 .it{color:#8fb4ff;}
 .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start;}
-.about p{font-size:19px;line-height:1.65;color:#e9dfe9;}
+.about p{font-size:19px;line-height:1.65;color:#dde3ee;}
 .about p + p{margin-top:18px;}
-.about strong{color:#fff;background:linear-gradient(transparent 62%,var(--pink) 62%);}
+.about strong{color:#fff;background:linear-gradient(transparent 62%,var(--accent) 62%);}
+.toolbox{margin-top:26px;}
+.toolbox h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.toolbox .tags{margin-top:0;}
+.toolbox .tags span{background:transparent;color:#fff;border-color:#59657b;}
 .loves{display:flex;flex-wrap:wrap;gap:12px;}
-.love{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700;font-size:18px;padding:12px 20px;border-radius:99px;border:2px solid var(--bg);transition:transform .15s;cursor:default;}
+.love{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-weight:700;font-size:18px;padding:12px 20px;border-radius:99px;border:2px solid var(--bg);transition:transform .15s;cursor:default;}
 .love span{font-size:22px;}
-.love:nth-child(1){background:var(--pink-soft);transform:rotate(-2deg);}
-.love:nth-child(2){background:var(--sun);transform:rotate(1.5deg);}
-.love:nth-child(3){background:var(--sky);transform:rotate(-1deg);}
-.love:nth-child(4){background:var(--lime);transform:rotate(2deg);}
+.love:nth-child(1){background:var(--amber);transform:rotate(-2deg);}
+.love:nth-child(2){background:var(--sand);transform:rotate(1.5deg);}
+.love:nth-child(3){background:#bcd1ff;transform:rotate(-1deg);}
+.love:nth-child(4){background:var(--mint);transform:rotate(2deg);}
 .love:nth-child(5){background:#fff;transform:rotate(-1.5deg);}
-.love:nth-child(6){background:var(--pink);transform:rotate(1deg);}
+.love:nth-child(6){background:var(--accent-soft);transform:rotate(1deg);}
 .love:hover{transform:rotate(0) scale(1.07);}
-.nowbox{margin-top:34px;padding:22px 24px;border:2px dashed #5b4a66;border-radius:var(--r);}
-.nowbox h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:10px;}
-.nowbox li{list-style:none;color:#e9dfe9;font-size:16px;padding:3px 0;}
+.nowbox{margin-top:34px;padding:22px 24px;border:2px dashed #59657b;border-radius:var(--r);}
+.nowbox h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.nowbox li{list-style:none;color:#dde3ee;font-size:16px;padding:3px 0;}
 .nowbox li b{color:#fff;}
 
 /* CONTACT */
 .contact{text-align:center;padding:110px 0 70px;}
 .contact h2{font-size:clamp(60px,14vw,170px);line-height:.84;margin-bottom:34px;}
-.contact h2 .it{color:var(--pink);}
+.contact h2 .it{color:var(--accent);}
 .contact .cta{justify-content:center;}
 .foot{margin-top:70px;font-size:14px;color:var(--muted);}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .rv.in{opacity:1;transform:none;}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div,.sticker,.status i{animation:none}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div,.seal,.status i{animation:none}}
 
+@media(max-width:900px){.hl-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:820px){
   .hero-row,.about-grid{grid-template-columns:1fr;gap:28px;}
   .cta{justify-content:flex-start;}
-  .sticker{width:112px;height:112px;font-size:17px;top:10px;}
-  .sticker span{font-size:26px;}
+  .seal{width:112px;height:112px;font-size:16px;top:10px;right:20px;padding:10px;}
+  .seal span{font-size:9px;}
+  .proj-grid{grid-template-columns:1fr;}
+  .proj-top{height:180px;}
   .job{grid-template-columns:1fr;gap:6px;}
+  .job.feature{margin-inline:-14px;padding-inline:14px;}
   .links a:not(.hire){display:none;}
   .about{border-radius:28px;margin:0 8px;}
   section{padding:64px 0;}
 }
+@media(max-width:520px){.hl-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -163,7 +203,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
     <a class="logo" href="#top">vriti<b>.</b></a>
     <div class="links">
       <a href="#projects">projects</a>
-      <a href="#work">work</a>
+      <a href="#work">experience</a>
       <a href="#about">about</a>
       <a class="hire" href="#contact">say hi</a>
     </div>
@@ -171,25 +211,36 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 </nav>
 
 <header class="hero wrap" id="top">
-  <div class="sticker"><div><span>⚽</span>Hala<br>Madrid</div></div>
-  <div class="status"><i></i>Open to Fall 2026 opportunities &amp; beyond</div>
+  <div class="seal"><div><span>Governor General's</span>Medalist</div></div>
+  <div class="status"><i></i>Open to Summer 2027 opportunities and beyond</div>
   <h1>Vriti<br><span class="it">Dahiya</span></h1>
   <div class="hero-row">
-    <p class="lede">CS student at <mark>UofT</mark> in Toronto. I build software for real human problems — ML research, full-stack, open source — and I really love soccer.</p>
+    <p class="lede">CS student at the <mark>University of Toronto</mark> applying machine learning to fintech and insurance. I build and test models that affect real financial outcomes, and I ship full stack AI products too.</p>
     <div class="cta">
       <a class="btn main" href="#projects">See my work ↓</a>
       <a class="btn" href="https://github.com/vritid" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn" href="https://www.linkedin.com/in/vriti-dahiya/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/vritidahiya/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </div>
 </header>
 
 <div class="marquee" aria-hidden="true">
   <div>
-    ML research <em>✦</em> Open source <em>✦</em> Full stack <em>✦</em> Real Madrid forever <em>✦</em> Pink glasses <em>✦</em> Always building <em>✦</em>
-    ML research <em>✦</em> Open source <em>✦</em> Full stack <em>✦</em> Real Madrid forever <em>✦</em> Pink glasses <em>✦</em> Always building <em>✦</em>
+    Machine learning <em>✦</em> Fintech and insurance <em>✦</em> LLM systems <em>✦</em> Risk and fraud modeling <em>✦</em> Computational vision <em>✦</em> Full stack AI <em>✦</em> Research <em>✦</em>
+    Machine learning <em>✦</em> Fintech and insurance <em>✦</em> LLM systems <em>✦</em> Risk and fraud modeling <em>✦</em> Computational vision <em>✦</em> Full stack AI <em>✦</em> Research <em>✦</em>
   </div>
 </div>
+
+<section class="highlights">
+  <div class="wrap">
+    <div class="hl-grid">
+      <div class="hl rv"><small>Honour</small><h3>Governor General's Medalist</h3><p>Recognized for academic excellence at the University of Toronto.</p></div>
+      <div class="hl rv"><small>Hackathon win</small><h3>Best Project, Finance and FinTech</h3><p>GigIT won it at NewHacks 2025. We built it in 24 hours.</p></div>
+      <div class="hl rv"><small>Research</small><h3>Collaborating with Oxford</h3><p>Designing and evaluating an AR intervention for emotional intelligence.</p></div>
+      <div class="hl rv"><small>Off the clock</small><h3>FIFA World Cup 2026</h3><p>Picked for the ceremonial flag bearing team, and volunteered at every Toronto match.</p></div>
+    </div>
+  </div>
+</section>
 
 <section class="projects" id="projects">
   <div class="wrap">
@@ -197,18 +248,55 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
     <h2 class="rv">Things I <span class="it">made</span></h2>
     <div class="proj-grid">
 
+      <a class="proj rv" href="https://github.com/vritid/GigIT" target="_blank" rel="noopener">
+        <div class="proj-top gig-top">
+          <div class="gig-doc"><div class="page"><i></i><i></i><i></i><i></i></div><div class="arrow">→</div><div class="report"><b>Verified</b>report for the bank</div></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-kicker">FinTech · AI</div>
+          <h3>GigIT</h3>
+          <p>An AI platform that helps freelancers get through financial approvals. Banks lean on W-2s that many gig workers do not have, so we read the documents they do have and turn them into a report a bank can review instantly.</p>
+          <ul>
+            <li>Gemini 2.5 Pro, an OCR model and our own scoring algorithms working together</li>
+            <li>Fast, accurate verification reports that cut turnaround time and paperwork</li>
+            <li>Built with two teammates in 24 hours at NewHacks 2025</li>
+          </ul>
+          <span class="award">🏆 Best Project, Finance and FinTech</span>
+          <div class="tags"><span>Gemini</span><span>OCR</span><span>Python</span><span>FinTech</span></div>
+          <span class="btn">View on GitHub ↗</span>
+        </div>
+      </a>
+
       <a class="proj rv" href="https://github.com/vritid/Just-in-Time" target="_blank" rel="noopener">
         <div class="proj-top jit-top"><div class="jit-tiles"><i></i><i></i><i></i><i></i><i></i></div></div>
         <div class="proj-body">
           <div class="proj-kicker">AI · Adaptive UI</div>
           <h3>Just in Time</h3>
-          <p>Transforms interfaces that already exist to match what a user says they need — a generated surface on a small Raspberry Pi device, built in real time.</p>
+          <p>Reshapes interfaces that already exist to match what a user says they need. The generated surface runs on a small Raspberry Pi device.</p>
           <ul>
-            <li>Four-stage agent pipeline: layout spec, content, theme and contrast-gated polish</li>
-            <li>Schema-validated renderer and design tokens, so generated UI stays accessible</li>
-            <li>Dev harness plus a Python test suite measuring model limits</li>
+            <li>Four stage agent pipeline: layout spec, content, theme, then contrast gated polish</li>
+            <li>Schema validated renderer and design tokens, so generated UI stays readable</li>
+            <li>Python test harness that measures what the model can and cannot do</li>
           </ul>
           <div class="tags"><span>TypeScript</span><span>React</span><span>LLM agents</span><span>Python</span></div>
+          <span class="btn">View on GitHub ↗</span>
+        </div>
+      </a>
+
+      <a class="proj rv" href="https://github.com/rostr-ftl2025/rostr" target="_blank" rel="noopener">
+        <div class="proj-top rostr-top">
+          <div class="rostr-card"><small>Fantasy baseball assistant</small><b>Complex stats in, clear next steps out</b><span>Built for beginners</span></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-kicker">Product · Sports analytics</div>
+          <h3>Rostr</h3>
+          <p>A fantasy baseball assistant for first time players. It turns complicated stats into clear suggestions and next step actions, built with the Focus in Technology Leadership program and BaiT Analytics.</p>
+          <ul>
+            <li>Worked from requirements through prototype, testing and demo</li>
+            <li>Shaped features around real startup constraints with a BaiT mentor</li>
+            <li>Presented to a panel of industry and program leaders</li>
+          </ul>
+          <div class="tags"><span>Full Stack</span><span>Product</span><span>Analytics</span></div>
           <span class="btn">View on GitHub ↗</span>
         </div>
       </a>
@@ -218,7 +306,7 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
         <div class="proj-body">
           <div class="proj-kicker">Space · Data viz</div>
           <h3>StarLink Mission Planner</h3>
-          <p>Interactive satellite mission planner that pulls public orbit data, tracks the ISS on a live map and predicts when it passes over Toronto.</p>
+          <p>A satellite mission planner that pulls public orbit data, tracks the ISS on a map and predicts when it passes over Toronto.</p>
           <ul>
             <li>Server route fetches and caches TLE data from CelesTrak</li>
             <li>SGP4 orbit propagation draws the ground track and current position</li>
@@ -236,64 +324,88 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 <section id="work">
   <div class="wrap">
     <div class="eyebrow rv">Experience</div>
-    <h2 class="rv">Stuff I've <span class="it">built &amp; done</span></h2>
+    <h2 class="rv">Where I've <span class="it">worked and researched</span></h2>
 
-    <article class="job soon rv">
-      <div class="when">Incoming · 2026</div>
+    <article class="job rv">
+      <div class="when">Incoming</div>
+      <div>
+        <h3 class="b-soon" data-badge="Incoming">Deloitte</h3>
+        <div class="role">Technology Intern</div>
+        <p>Joining the Technology team. I got a first look at the culture at Deloitte's Path to Purpose Student Summit in Toronto, where our team's city build won me a Green Dot Builder Award.</p>
+      </div>
+    </article>
+
+    <article class="job feature rv">
+      <div class="when">Jan 2026 to May 2026</div>
+      <div>
+        <h3 class="b-res" data-badge="Research">University of Oxford</h3>
+        <div class="role">Undergraduate Research Assistant</div>
+        <p>I worked on designing and evaluating an AR based intervention that trains emotional intelligence through immersive, scenario driven practice: recognizing emotions, regulating them and building empathy.</p>
+        <ul>
+          <li>Designed an evaluation framework on the COM-B behavior change model, linking each part of the intervention to Capability, Opportunity and Motivation and the behaviors that follow.</li>
+          <li>Turned COM-B constructs into measurable variables, combining validated EI instruments, in-app interaction telemetry and ecological momentary assessment to see if gains carry over to real life.</li>
+        </ul>
+        <div class="tags"><span>Experimental design</span><span>Behavioral modeling</span><span>AR</span><span>Evaluation</span></div>
+      </div>
+    </article>
+
+    <article class="job rv">
+      <div class="when">May 2026 to Aug 2026</div>
       <div>
         <h3>Co-operators</h3>
-        <div class="role">Agile Analyst · Full Stack Dev</div>
-        <p>Incoming internship. More soon.</p>
+        <div class="role">AI Developer Intern, Full Stack · KDC Team</div>
+        <p>Built complete AI solutions across the full stack: LLM backends, APIs and production ready frontends. The work shipped as production AI applications, including claims and sovereign AI tools that serve clients across the country.</p>
+        <div class="tags"><span>LLMs</span><span>APIs</span><span>Full Stack</span><span>Production AI</span></div>
       </div>
     </article>
 
-    <article class="job now rv">
-      <div class="when">Jan 2026 – Present</div>
+    <article class="job rv">
+      <div class="when">Jan 2026 to Present</div>
       <div>
-        <h3>BWLab · UofT</h3>
+        <h3 class="b-now" data-badge="Now">BWLab · UofT</h3>
         <div class="role">Undergraduate Research Assistant</div>
-        <p>Research at the intersection of CS and cognitive modeling. Building ML and LLM pipelines to analyze image aesthetics, designing image-presentation experiments, and modeling how visual features predict human memorability and recall.</p>
-        <div class="tags"><span>ML</span><span>LLMs</span><span>Python</span><span>Cognitive Science</span></div>
+        <p>Research at the line between computer science and cognitive modeling. I build ML and LLM pipelines that analyze image aesthetics, design image presentation experiments, and model how visual features predict what people remember.</p>
+        <div class="tags"><span>ML</span><span>LLMs</span><span>Python</span><span>Computational vision</span></div>
       </div>
     </article>
 
-    <article class="job now rv">
-      <div class="when">Jan 2026 – Present</div>
+    <article class="job rv">
+      <div class="when">Jan 2026 to Present</div>
       <div>
-        <h3>Mozilla</h3>
+        <h3 class="b-now" data-badge="Now">Mozilla</h3>
         <div class="role">Open Source Developer</div>
-        <p>Open source contributor at MDN Web Docs — improving WebSocket and JavaScript API examples and documentation accuracy.</p>
+        <p>Contributing to MDN Web Docs. I improve WebSocket and JavaScript API examples and fix documentation accuracy so developers get code that works.</p>
         <div class="tags"><span>Open Source</span><span>JavaScript</span><span>WebSockets</span></div>
       </div>
     </article>
 
     <article class="job rv">
-      <div class="when">Sep 2025 – Jan 2026</div>
+      <div class="when">Sep 2025 to Jan 2026</div>
       <div>
         <h3>BaiT Analytics</h3>
-        <div class="role">Full Stack Developer · Intern</div>
-        <p>Co-developed Rostr, a beginner-friendly fantasy baseball assistant that turns complex stats into simple recommendations. Contributed across the full build cycle — requirements through demo — and presented to a panel of industry leaders, then iterated on their feedback.</p>
+        <div class="role">Full Stack Developer Intern</div>
+        <p>Co-developed Rostr, which turns complex stats into simple recommendations for beginner fantasy baseball managers. I worked across the whole build, from requirements to demo, partnered with BaiT to fit real startup constraints, and presented to a panel of industry leaders.</p>
         <div class="tags"><span>Full Stack</span><span>Product</span><span>Startup</span></div>
       </div>
     </article>
 
     <article class="job rv">
-      <div class="when">Jan 2025 – Oct 2025</div>
+      <div class="when">Jan 2025 to Oct 2025</div>
       <div>
         <h3>University of Toronto</h3>
         <div class="role">Campus Events Ambassador</div>
-        <p>Represented UofT at campus-wide events. Worked with large teams on logistics and helped create events from start to finish.</p>
+        <p>Represented UofT at campus-wide events, worked with large teams on logistics and helped create events from start to finish.</p>
         <div class="tags"><span>Team Management</span><span>Event Planning</span></div>
       </div>
     </article>
 
     <article class="job rv">
-      <div class="when">2019 – 2024</div>
+      <div class="when">2019 to 2024</div>
       <div>
         <h3>Royal Canadian Army Cadets</h3>
         <div class="role">Sergeant Cadet · 5 years</div>
-        <p>Marksmanship, army drills, annual trips to Canadian Army bases, government-hosted volunteer events, navigation and survival skills. Where I learned what real discipline and team pressure feel like.</p>
-        <div class="tags"><span>Leadership</span><span>Navigation</span><span>Volunteering</span></div>
+        <p>Marksmanship, drills, annual trips to Canadian Army bases, government-hosted volunteer events, and navigation and survival skills. It's where I learned what discipline and team pressure really feel like.</p>
+        <div class="tags"><span>Leadership</span><span>Public Speaking</span><span>Volunteering</span></div>
       </div>
     </article>
   </div>
@@ -301,12 +413,17 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
 
 <section class="about" id="about">
   <div class="wrap">
-    <div class="eyebrow rv">About me</div>
+    <div class="eyebrow rv" style="color:var(--amber)">About me</div>
     <h2 class="rv">Hi, I'm <span class="it">Vriti.</span></h2>
     <div class="about-grid">
       <div class="rv">
-        <p>I study CS at UofT while doing ML research, contributing to open source at Mozilla, and building real products. I got into tech through curiosity and stayed because the problems genuinely never get boring.</p>
-        <p>Before CS, I spent five years in the <strong>Royal Canadian Army Cadets</strong> — it taught me more about discipline and high-pressure teamwork than anything else. I wear pink glasses, have strong opinions about Real Madrid, and I'm always working on something.</p>
+        <p>I'm a CS student at UofT who likes machine learning that touches real money and real decisions: risk and credit modeling, fraud detection and behavioral forecasting. I care about building models <strong>and testing them hard</strong>, from underwriting and pricing to real-time risk checks.</p>
+        <p>My research also goes into computational vision and aesthetics, especially personalized, context aware systems that adapt in real time. Before CS, I spent five years in the <strong>Royal Canadian Army Cadets</strong>, which taught me more about discipline and teamwork under pressure than anything else.</p>
+        <p>Away from the laptop I'm a big Real Madrid fan, and I got to walk out with the players at the 2026 World Cup here in Toronto. I'm always working on something.</p>
+        <div class="toolbox">
+          <h4>Toolbox</h4>
+          <div class="tags"><span>Python</span><span>R</span><span>Azure SQL</span><span>ETL</span><span>Data analysis</span><span>TypeScript</span><span>React</span><span>LLM APIs</span></div>
+        </div>
       </div>
       <div class="rv">
         <div class="loves">
@@ -320,10 +437,10 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
         <div class="nowbox">
           <h4>Right now</h4>
           <ul>
-            <li><b>Building</b> — ML pipelines @ BWLab</li>
-            <li><b>Contributing</b> — MDN Web Docs</li>
-            <li><b>Reading</b> — Project Hail Mary</li>
-            <li><b>On repeat</b> — 7 Summers</li>
+            <li><b>Building</b>: ML pipelines at BWLab</li>
+            <li><b>Contributing</b>: MDN Web Docs</li>
+            <li><b>Next up</b>: Technology internship at Deloitte</li>
+            <li><b>Reading</b>: Project Hail Mary</li>
           </ul>
         </div>
       </div>
@@ -337,9 +454,9 @@ h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing
     <div class="cta rv">
       <a class="btn main" href="mailto:vritidahiya@cs.toronto.edu">vritidahiya@cs.toronto.edu ↗</a>
       <a class="btn" href="https://github.com/vritid" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn" href="https://www.linkedin.com/in/vriti-dahiya/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/vritidahiya/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
-    <div class="foot">© 2026 Vriti Dahiya · built with ⚽ and late nights</div>
+    <div class="foot">© 2026 Vriti Dahiya · Toronto</div>
   </div>
 </section>
 
