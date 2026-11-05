@@ -125,6 +125,7 @@ a.hl:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
 .proj-top img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
 .proj-top.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;place-items:unset;background:#16233a;scrollbar-width:none;}
 .proj-top.shots::-webkit-scrollbar{display:none;}
+.proj-top.shots.light{background:var(--mint);}
 .proj-top.shots img{flex:0 0 100%;scroll-snap-align:start;object-fit:contain;object-position:center;}
 .proj-top.shots::after{content:"swipe →";position:absolute;right:12px;bottom:10px;font-size:12px;font-weight:700;background:var(--card);border:2px solid var(--ink);border-radius:99px;padding:1px 10px;pointer-events:none;}
 .jit-tiles{display:grid;grid-template-columns:repeat(3,64px);grid-auto-rows:64px;gap:6px;transform:rotate(-4deg);}
@@ -317,9 +318,7 @@ a.hl:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
       </a>
 
       <a class="proj rv" href="https://github.com/vritid/GigIT" target="_blank" rel="noopener">
-        <div class="proj-top gig-top">
-          <div class="gig-doc"><div class="page"><i></i><i></i><i></i><i></i></div><div class="arrow">→</div><div class="report"><b>Verified</b>report in seconds</div></div>
-        </div>
+        <div class="proj-top shots light"><img src="assets/gigit-home.jpg" alt="GigIT landing page with paths for gig workers and bank partners" loading="lazy"><img src="assets/gigit-approved.jpg" alt="GigIT application accepted screen showing what happens next" loading="lazy"><img src="assets/gigit-risk.jpg" alt="GigIT risk score configuration screen with weighted sliders and a distribution chart" loading="lazy"></div>
         <div class="proj-body">
           <div class="proj-kicker">LLM · Document AI</div>
           <h3>GigIT</h3>
