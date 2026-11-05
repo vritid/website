@@ -4,524 +4,348 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vriti Dahiya</title>
+<meta name="description" content="Vriti Dahiya — CS student at UofT building software, ML research, open source. Real Madrid forever.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,400;1,9..144,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#f6f3ee;
-  --card:#efebe3;
-  --ink:#17160f;
-  --muted:#8c8880;
-  --soft:#ddd9d0;
-  --pink:#ec4899;
-  --green:#22c55e;
-  --mono:'Courier Prime',monospace;
-  --serif:'Fraunces',serif;
+  --bg:#fff4e6;
+  --ink:#1b1220;
+  --pink:#ff4fa0;
+  --pink-soft:#ffd3e8;
+  --lime:#c9f26b;
+  --sky:#a8d8ff;
+  --sun:#ffd24a;
+  --card:#ffffff;
+  --muted:#6b5f73;
+  --sans:'Bricolage Grotesque',system-ui,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --r:22px;
 }
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink);font-family:var(--mono);overflow-x:hidden;cursor:none;}
-
-#cur{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--pink);pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .18s,height .18s,background .18s;mix-blend-mode:multiply;}
-#cur.big{width:46px;height:46px;background:rgba(236,72,153,.1);border:1.5px solid var(--pink);}
-
-/* LOADER */
-#loader{
-  position:fixed;inset:0;z-index:9998;
-  background:#0d0c0b;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;
-  transition:opacity .8s ease,visibility .8s;
-}
-#loader.out{opacity:0;visibility:hidden;pointer-events:none;}
-.l-pct{font-family:var(--serif);font-size:64px;font-style:italic;color:#f6f3ee;line-height:1;}
-.l-scene{position:relative;width:320px;height:64px;flex-shrink:0;}
-.l-ground{position:absolute;bottom:0;left:0;right:0;height:1px;background:#2a2825;}
-#lChar,#lBall{position:absolute;bottom:1px;image-rendering:pixelated;image-rendering:crisp-edges;}
-.l-bar{width:220px;height:1px;background:#252320;}
-.l-fill{height:100%;background:var(--pink);width:0%;transition:width .08s linear;}
-.l-sub{font-size:11px;color:#3a3835;letter-spacing:.15em;}
+html{scroll-behavior:smooth;overflow-x:clip;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+::selection{background:var(--pink);color:#fff;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
 
 /* NAV */
-nav{
-  position:sticky;top:0;z-index:200;
-  background:var(--bg);border-bottom:1px solid var(--soft);
-  display:flex;align-items:center;padding:.85rem 2.5rem;gap:2.5rem;
-  overflow-x:auto;
-}
-nav::-webkit-scrollbar{display:none;}
-.n-brand{font-family:var(--serif);font-size:16px;font-style:italic;color:var(--ink);text-decoration:none;margin-right:auto;white-space:nowrap;}
-.n-link{font-size:11px;letter-spacing:.07em;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .2s;cursor:none;}
-.n-link:hover,.n-link.on{color:var(--pink);}
-
-/* LAYOUT */
-.wrap{max-width:820px;margin:0 auto;padding:0 2.5rem;}
-.sec{border-bottom:1px solid var(--soft);padding:4.5rem 0;}
-.lbl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;}
-.lbl::after{content:'';flex:1;height:1px;background:var(--soft);}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,244,230,.85);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink);}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+.logo{font-family:var(--serif);font-style:italic;font-size:28px;text-decoration:none;line-height:1;}
+.logo b{color:var(--pink);font-style:normal;}
+.links{display:flex;gap:6px;}
+.links a{text-decoration:none;font-weight:500;font-size:15px;padding:6px 14px;border-radius:99px;border:2px solid transparent;transition:.15s;}
+.links a:hover{border-color:var(--ink);background:var(--card);}
+.links a.hire{background:var(--ink);color:var(--bg);}
+.links a.hire:hover{background:var(--pink);border-color:var(--ink);color:var(--ink);}
 
 /* HERO */
-.hero{padding:3.5rem 0 3rem;}
-.hero-grid{display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:2rem;}
-.hero-info{flex:1;min-width:220px;}
-.hero-ey{font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:.5rem;}
-.hero-name{font-family:var(--serif);font-style:italic;font-size:clamp(44px,9vw,78px);line-height:.9;margin-bottom:1.3rem;}
-.hero-name em{color:var(--pink);font-style:normal;}
-.hero-bio{font-size:13px;line-height:2;color:#5c5850;max-width:420px;margin-bottom:1.8rem;}
-.pills{display:flex;gap:.7rem;flex-wrap:wrap;}
-.pill{font-size:11px;letter-spacing:.04em;padding:8px 20px;border:1px solid var(--soft);color:var(--muted);text-decoration:none;transition:all .2s;display:inline-block;cursor:none;}
-.pill:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);}
-.status{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--muted);}
-.sdot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:p 2.5s ease-in-out infinite;}
-@keyframes p{0%,100%{opacity:1}50%{opacity:.2}}
+.hero{padding:72px 0 56px;position:relative;}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:5px 14px 5px 10px;font-size:14px;font-weight:500;margin-bottom:28px;}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--ink);animation:blink 1.8s infinite;}
+@keyframes blink{50%{opacity:.2}}
+h1{font-weight:800;font-size:clamp(64px,15vw,184px);line-height:.84;letter-spacing:-.05em;}
+h1 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.03em;color:var(--pink);}
+.hero-row{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:44px;align-items:end;}
+.lede{font-size:clamp(20px,2.4vw,27px);line-height:1.35;font-weight:500;letter-spacing:-.01em;max-width:560px;}
+.lede mark{background:var(--pink-soft);padding:0 6px;border-radius:6px;}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:16px;padding:13px 22px;border-radius:99px;border:2px solid var(--ink);background:var(--card);box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s;}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+.btn.main{background:var(--pink);}
+.sticker{position:absolute;right:0;top:56px;width:150px;height:150px;border-radius:50%;background:var(--sun);border:2px solid var(--ink);display:grid;place-items:center;text-align:center;font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.05;transform:rotate(12deg);box-shadow:5px 5px 0 var(--ink);animation:wob 6s ease-in-out infinite;}
+.sticker span{font-size:34px;display:block;font-style:normal;}
+@keyframes wob{50%{transform:rotate(-6deg) scale(1.04)}}
 
-/* EXP */
-.exp{display:grid;grid-template-columns:130px 1fr;gap:1.5rem;padding:2rem 0;border-bottom:1px solid var(--soft);}
-.exp:last-child{border-bottom:none;}
-.exp-d{font-size:11px;color:var(--muted);line-height:1.8;padding-top:2px;}
-.exp-co{font-family:var(--serif);font-style:italic;font-size:21px;margin-bottom:.2rem;}
-.exp-r{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:.6rem;}
-.exp-tx{font-size:12px;color:#6a6560;line-height:1.9;}
-.tags{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.3rem;}
-.tag{font-size:10px;padding:2px 8px;background:var(--card);color:var(--muted);}
+/* MARQUEE */
+.marquee{border-block:2px solid var(--ink);background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;transform:rotate(-1.2deg);margin:36px -20px;}
+.marquee div{display:inline-block;padding:14px 0;font-family:var(--serif);font-style:italic;font-size:30px;animation:slide 28s linear infinite;}
+.marquee em{color:var(--pink);font-style:normal;margin:0 22px;}
+@keyframes slide{to{transform:translateX(-50%)}}
 
-/* LOVES */
-.loves{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1px;background:var(--soft);}
-.love{background:var(--bg);padding:1.8rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;transition:background .2s;text-decoration:none;color:inherit;cursor:none;}
-.love:hover{background:var(--card);}
-.love-ic{font-size:26px;margin-bottom:.2rem;}
-.love-n{font-family:var(--serif);font-style:italic;font-size:18px;}
-.love-d{font-size:11px;color:var(--muted);line-height:1.7;}
+/* SECTIONS */
+section{padding:84px 0;}
+.eyebrow{font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:10px;}
+h2{font-weight:800;font-size:clamp(40px,6.5vw,76px);line-height:.95;letter-spacing:-.04em;margin-bottom:44px;}
+h2 .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em;}
 
-/* NOW */
-.now-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--soft);}
-.nc{background:var(--bg);padding:2rem 1.5rem;transition:background .2s;cursor:none;}
-.nc:hover{background:var(--card);}
-.nc-l{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;}
-.nc-v{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.3;}
-.nc-s{font-size:11px;color:var(--muted);margin-top:.4rem;}
 
-/* PIXEL STRIP */
-.pstrip{border-bottom:1px solid var(--soft);padding:0;overflow:hidden;height:34px;background:var(--bg);}
-#stripCanvas{display:block;image-rendering:pixelated;image-rendering:crisp-edges;}
+/* PROJECTS */
+.projects{padding-top:40px;}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.proj{text-decoration:none;color:inherit;display:flex;flex-direction:column;border:2px solid var(--ink);border-radius:28px;background:var(--card);box-shadow:8px 8px 0 var(--ink);overflow:hidden;transition:transform .15s,box-shadow .15s;}
+.proj:hover{transform:translate(3px,3px);box-shadow:5px 5px 0 var(--ink);}
+.proj-top{height:230px;border-bottom:2px solid var(--ink);position:relative;overflow:hidden;display:grid;place-items:center;}
+.proj-top img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.jit-top{background:#2a1233;}
+.jit-tiles{display:grid;grid-template-columns:repeat(3,64px);grid-auto-rows:64px;gap:6px;transform:rotate(-4deg);}
+.jit-tiles i{border-radius:8px;display:block;}
+.jit-tiles i:nth-child(1){background:var(--pink);grid-column:span 2;}
+.jit-tiles i:nth-child(2){background:var(--sun);}
+.jit-tiles i:nth-child(3){background:var(--sky);}
+.jit-tiles i:nth-child(4){background:var(--lime);}
+.jit-tiles i:nth-child(5){background:#7c4dff;grid-column:span 2;}
+.proj-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1;}
+.proj-kicker{font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);}
+.proj h3{font-weight:800;font-size:34px;letter-spacing:-.03em;line-height:1;margin:6px 0 12px;}
+.proj p{color:#3d3345;font-size:16.5px;}
+.proj ul{margin:14px 0 0 18px;color:#3d3345;font-size:15.5px;}
+.proj ul li{margin-bottom:4px;}
+.proj .tags{margin-top:auto;padding-top:18px;}
+.proj .btn{margin-top:20px;align-self:flex-start;font-size:15px;padding:10px 18px;}
+@media(max-width:820px){.proj-grid{grid-template-columns:1fr;}.proj-top{height:190px;}}
+
+/* WORK */
+.job{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:30px 0;border-top:2px solid var(--ink);}
+.job:last-child{border-bottom:2px solid var(--ink);}
+.when{font-weight:500;color:var(--muted);font-size:15px;padding-top:6px;}
+.job h3{font-weight:800;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.03em;line-height:1.05;}
+.job .role{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--pink);margin:2px 0 10px;}
+.job p{max-width:640px;color:#3d3345;font-size:16.5px;}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.tags span{font-size:13px;font-weight:500;border:1.5px solid var(--ink);border-radius:99px;padding:2px 12px;background:var(--card);}
+.job.now h3::after{content:'now';font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:2px 10px;margin-left:12px;vertical-align:middle;}
+.job.soon h3::after{content:'2026';font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.08em;background:var(--sky);border:2px solid var(--ink);border-radius:99px;padding:2px 10px;margin-left:12px;vertical-align:middle;}
+
+/* ABOUT / LOVES */
+.about{background:var(--ink);color:var(--bg);border-radius:40px;margin:0 12px;}
+.about .wrap{padding-block:0;}
+.about h2 .it{color:var(--pink);}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start;}
+.about p{font-size:19px;line-height:1.65;color:#e9dfe9;}
+.about p + p{margin-top:18px;}
+.about strong{color:#fff;background:linear-gradient(transparent 62%,var(--pink) 62%);}
+.loves{display:flex;flex-wrap:wrap;gap:12px;}
+.love{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700;font-size:18px;padding:12px 20px;border-radius:99px;border:2px solid var(--bg);transition:transform .15s;cursor:default;}
+.love span{font-size:22px;}
+.love:nth-child(1){background:var(--pink-soft);transform:rotate(-2deg);}
+.love:nth-child(2){background:var(--sun);transform:rotate(1.5deg);}
+.love:nth-child(3){background:var(--sky);transform:rotate(-1deg);}
+.love:nth-child(4){background:var(--lime);transform:rotate(2deg);}
+.love:nth-child(5){background:#fff;transform:rotate(-1.5deg);}
+.love:nth-child(6){background:var(--pink);transform:rotate(1deg);}
+.love:hover{transform:rotate(0) scale(1.07);}
+.nowbox{margin-top:34px;padding:22px 24px;border:2px dashed #5b4a66;border-radius:var(--r);}
+.nowbox h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:10px;}
+.nowbox li{list-style:none;color:#e9dfe9;font-size:16px;padding:3px 0;}
+.nowbox li b{color:#fff;}
 
 /* CONTACT */
-.contact-h{font-family:var(--serif);font-style:italic;font-size:clamp(58px,12vw,112px);line-height:.88;margin-bottom:2.5rem;}
-.contact-h span{color:var(--pink);}
-.foot{font-size:11px;color:var(--muted);margin-top:3rem;letter-spacing:.05em;}
+.contact{text-align:center;padding:110px 0 70px;}
+.contact h2{font-size:clamp(60px,14vw,170px);line-height:.84;margin-bottom:34px;}
+.contact h2 .it{color:var(--pink);}
+.contact .cta{justify-content:center;}
+.foot{margin-top:70px;font-size:14px;color:var(--muted);}
 
 /* REVEAL */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease;}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .rv.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.marquee div,.sticker,.status i{animation:none}}
 
-@media(max-width:560px){
-  .exp{grid-template-columns:1fr;}
-  .now-grid{grid-template-columns:1fr;}
-  nav{padding:.85rem 1.2rem;gap:1.5rem;}
-  .wrap{padding:0 1.2rem;}
+@media(max-width:820px){
+  .hero-row,.about-grid{grid-template-columns:1fr;gap:28px;}
+  .cta{justify-content:flex-start;}
+  .sticker{width:112px;height:112px;font-size:17px;top:10px;}
+  .sticker span{font-size:26px;}
+  .job{grid-template-columns:1fr;gap:6px;}
+  .links a:not(.hire){display:none;}
+  .about{border-radius:28px;margin:0 8px;}
+  section{padding:64px 0;}
 }
 </style>
 </head>
 <body>
 
-<div id="cur"></div>
-
-<!-- ══ LOADER ══ -->
-<div id="loader">
-  <div class="l-pct" id="lPct">0%</div>
-  <div class="l-scene">
-    <canvas id="lChar" width="16" height="24" style="width:32px;height:48px;"></canvas>
-    <canvas id="lBall" width="10" height="10" style="width:20px;height:20px;"></canvas>
-    <div class="l-ground"></div>
-  </div>
-  <div class="l-bar"><div class="l-fill" id="lFill"></div></div>
-  <div class="l-sub">loading vriti's world...</div>
-</div>
-
-<!-- ══ NAV ══ -->
 <nav>
-  <a class="n-brand" href="#">vriti.</a>
-  <a class="n-link" href="#about">about</a>
-  <a class="n-link" href="#exp">experience</a>
-  <a class="n-link" href="#loves">loves</a>
-  <a class="n-link" href="#now">now</a>
-  <a class="n-link" href="#contact">say hi</a>
+  <div class="wrap">
+    <a class="logo" href="#top">vriti<b>.</b></a>
+    <div class="links">
+      <a href="#projects">projects</a>
+      <a href="#work">work</a>
+      <a href="#about">about</a>
+      <a class="hire" href="#contact">say hi</a>
+    </div>
+  </div>
 </nav>
 
-<div class="wrap">
+<header class="hero wrap" id="top">
+  <div class="sticker"><div><span>⚽</span>Hala<br>Madrid</div></div>
+  <div class="status"><i></i>Open to Fall 2026 opportunities &amp; beyond</div>
+  <h1>Vriti<br><span class="it">Dahiya</span></h1>
+  <div class="hero-row">
+    <p class="lede">CS student at <mark>UofT</mark> in Toronto. I build software for real human problems — ML research, full-stack, open source — and I really love soccer.</p>
+    <div class="cta">
+      <a class="btn main" href="#projects">See my work ↓</a>
+      <a class="btn" href="https://github.com/vritid" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/vriti-dahiya/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</header>
 
-<!-- ══ HERO ══ -->
-<section class="sec hero" id="top">
-  <div class="hero-grid">
-    <canvas id="avCanvas" width="20" height="30" style="width:80px;height:120px;image-rendering:pixelated;image-rendering:crisp-edges;flex-shrink:0;"></canvas>
-    <div class="hero-info">
-      <div class="hero-ey">Toronto · CS @ University of Toronto</div>
-      <h1 class="hero-name">Vriti<br><em>Dahiya</em></h1>
-      <p class="hero-bio">CS student building things at the intersection of software and real human problems. ML research, full-stack dev, open source. I like figuring out hard stuff — and I really love soccer.</p>
-      <div class="pills">
-        <a class="pill" href="https://github.com/vritid" target="_blank">GitHub ↗</a>
-        <a class="pill" href="https://www.linkedin.com/in/vriti-dahiya/" target="_blank">LinkedIn ↗</a>
-        <a class="pill" href="mailto:vritidahiya@cs.toronto.edu">Email ↗</a>
+<div class="marquee" aria-hidden="true">
+  <div>
+    ML research <em>✦</em> Open source <em>✦</em> Full stack <em>✦</em> Real Madrid forever <em>✦</em> Pink glasses <em>✦</em> Always building <em>✦</em>
+    ML research <em>✦</em> Open source <em>✦</em> Full stack <em>✦</em> Real Madrid forever <em>✦</em> Pink glasses <em>✦</em> Always building <em>✦</em>
+  </div>
+</div>
+
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="eyebrow rv">Featured projects</div>
+    <h2 class="rv">Things I <span class="it">made</span></h2>
+    <div class="proj-grid">
+
+      <a class="proj rv" href="https://github.com/vritid/Just-in-Time" target="_blank" rel="noopener">
+        <div class="proj-top jit-top"><div class="jit-tiles"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="proj-body">
+          <div class="proj-kicker">AI · Adaptive UI</div>
+          <h3>Just in Time</h3>
+          <p>Transforms interfaces that already exist to match what a user says they need — a generated surface on a small Raspberry Pi device, built in real time.</p>
+          <ul>
+            <li>Four-stage agent pipeline: layout spec, content, theme and contrast-gated polish</li>
+            <li>Schema-validated renderer and design tokens, so generated UI stays accessible</li>
+            <li>Dev harness plus a Python test suite measuring model limits</li>
+          </ul>
+          <div class="tags"><span>TypeScript</span><span>React</span><span>LLM agents</span><span>Python</span></div>
+          <span class="btn">View on GitHub ↗</span>
+        </div>
+      </a>
+
+      <a class="proj rv" href="https://github.com/vritid/starlink-mission-planner" target="_blank" rel="noopener">
+        <div class="proj-top"><img src="assets/starlink-demo.png" alt="Starlink Mission Planner showing the ISS ground track on a map" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="proj-kicker">Space · Data viz</div>
+          <h3>StarLink Mission Planner</h3>
+          <p>Interactive satellite mission planner that pulls public orbit data, tracks the ISS on a live map and predicts when it passes over Toronto.</p>
+          <ul>
+            <li>Server route fetches and caches TLE data from CelesTrak</li>
+            <li>SGP4 orbit propagation draws the ground track and current position</li>
+            <li>Pass predictions with start, peak, end and max elevation</li>
+          </ul>
+          <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Leaflet</span><span>satellite.js</span></div>
+          <span class="btn">View on GitHub ↗</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow rv">Experience</div>
+    <h2 class="rv">Stuff I've <span class="it">built &amp; done</span></h2>
+
+    <article class="job soon rv">
+      <div class="when">Incoming · 2026</div>
+      <div>
+        <h3>Co-operators</h3>
+        <div class="role">Agile Analyst · Full Stack Dev</div>
+        <p>Incoming internship. More soon.</p>
+      </div>
+    </article>
+
+    <article class="job now rv">
+      <div class="when">Jan 2026 – Present</div>
+      <div>
+        <h3>BWLab · UofT</h3>
+        <div class="role">Undergraduate Research Assistant</div>
+        <p>Research at the intersection of CS and cognitive modeling. Building ML and LLM pipelines to analyze image aesthetics, designing image-presentation experiments, and modeling how visual features predict human memorability and recall.</p>
+        <div class="tags"><span>ML</span><span>LLMs</span><span>Python</span><span>Cognitive Science</span></div>
+      </div>
+    </article>
+
+    <article class="job now rv">
+      <div class="when">Jan 2026 – Present</div>
+      <div>
+        <h3>Mozilla</h3>
+        <div class="role">Open Source Developer</div>
+        <p>Open source contributor at MDN Web Docs — improving WebSocket and JavaScript API examples and documentation accuracy.</p>
+        <div class="tags"><span>Open Source</span><span>JavaScript</span><span>WebSockets</span></div>
+      </div>
+    </article>
+
+    <article class="job rv">
+      <div class="when">Sep 2025 – Jan 2026</div>
+      <div>
+        <h3>BaiT Analytics</h3>
+        <div class="role">Full Stack Developer · Intern</div>
+        <p>Co-developed Rostr, a beginner-friendly fantasy baseball assistant that turns complex stats into simple recommendations. Contributed across the full build cycle — requirements through demo — and presented to a panel of industry leaders, then iterated on their feedback.</p>
+        <div class="tags"><span>Full Stack</span><span>Product</span><span>Startup</span></div>
+      </div>
+    </article>
+
+    <article class="job rv">
+      <div class="when">Jan 2025 – Oct 2025</div>
+      <div>
+        <h3>University of Toronto</h3>
+        <div class="role">Campus Events Ambassador</div>
+        <p>Represented UofT at campus-wide events. Worked with large teams on logistics and helped create events from start to finish.</p>
+        <div class="tags"><span>Team Management</span><span>Event Planning</span></div>
+      </div>
+    </article>
+
+    <article class="job rv">
+      <div class="when">2019 – 2024</div>
+      <div>
+        <h3>Royal Canadian Army Cadets</h3>
+        <div class="role">Sergeant Cadet · 5 years</div>
+        <p>Marksmanship, army drills, annual trips to Canadian Army bases, government-hosted volunteer events, navigation and survival skills. Where I learned what real discipline and team pressure feel like.</p>
+        <div class="tags"><span>Leadership</span><span>Navigation</span><span>Volunteering</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="eyebrow rv">About me</div>
+    <h2 class="rv">Hi, I'm <span class="it">Vriti.</span></h2>
+    <div class="about-grid">
+      <div class="rv">
+        <p>I study CS at UofT while doing ML research, contributing to open source at Mozilla, and building real products. I got into tech through curiosity and stayed because the problems genuinely never get boring.</p>
+        <p>Before CS, I spent five years in the <strong>Royal Canadian Army Cadets</strong> — it taught me more about discipline and high-pressure teamwork than anything else. I wear pink glasses, have strong opinions about Real Madrid, and I'm always working on something.</p>
+      </div>
+      <div class="rv">
+        <div class="loves">
+          <div class="love"><span>⚽</span>Real Madrid</div>
+          <div class="love"><span>🤠</span>Morgan Wallen</div>
+          <div class="love"><span>📖</span>Project Hail Mary</div>
+          <div class="love"><span>🌮</span>Mexican food</div>
+          <div class="love"><span>📺</span>Big Bang Theory</div>
+          <div class="love"><span>🔬</span>Research</div>
+        </div>
+        <div class="nowbox">
+          <h4>Right now</h4>
+          <ul>
+            <li><b>Building</b> — ML pipelines @ BWLab</li>
+            <li><b>Contributing</b> — MDN Web Docs</li>
+            <li><b>Reading</b> — Project Hail Mary</li>
+            <li><b>On repeat</b> — 7 Summers</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <div class="status"><div class="sdot"></div>Open to Fall 2026 opportunities &amp; beyond</div>
 </section>
 
-<!-- ══ ABOUT ══ -->
-<section class="sec" id="about">
-  <div class="lbl">About</div>
-  <p class="rv" style="font-size:14px;line-height:2.1;color:#5c5850;max-width:580px;">
-    I'm <strong style="color:var(--ink)">Vriti</strong> — studying CS at UofT while doing ML research, contributing to open source at Mozilla, and building real products. I got into tech through curiosity and stayed because the problems genuinely never get boring.<br><br>
-    Before CS, I spent five years in the <strong style="color:var(--ink)">Royal Canadian Army Cadets</strong> — it taught me more about discipline and high-pressure teamwork than anything else. I wear pink glasses. I have strong opinions about Real Madrid. I'm always working on something.
-  </p>
-</section>
-
-<!-- ══ EXPERIENCE ══ -->
-<section class="sec" id="exp">
-  <div class="lbl">Experience</div>
-
-  <div class="exp rv">
-    <div class="exp-d">Incoming<br>2026</div>
-    <div>
-      <div class="exp-co">Co-operators</div>
-      <div class="exp-r">Agile Analyst · Full Stack Dev</div>
-      <div class="exp-tx">Incoming internship. More soon.</div>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="rv">Let's <span class="it">talk.</span></h2>
+    <div class="cta rv">
+      <a class="btn main" href="mailto:vritidahiya@cs.toronto.edu">vritidahiya@cs.toronto.edu ↗</a>
+      <a class="btn" href="https://github.com/vritid" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="https://www.linkedin.com/in/vriti-dahiya/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
-  </div>
-
-  <div class="exp rv">
-    <div class="exp-d">Jan 2026<br>Present</div>
-    <div>
-      <div class="exp-co">BWLab · UofT</div>
-      <div class="exp-r">Undergraduate Research Assistant</div>
-      <div class="exp-tx">Contributing to research at the intersection of CS and cognitive modeling. Building ML and LLM pipelines to analyze image aesthetics, designing image-presentation experiments, and modeling how visual features predict human memorability and recall.</div>
-      <div class="tags"><span class="tag">ML</span><span class="tag">LLMs</span><span class="tag">Python</span><span class="tag">Cognitive Science</span></div>
-    </div>
-  </div>
-
-  <div class="exp rv">
-    <div class="exp-d">Jan 2026<br>Present</div>
-    <div>
-      <div class="exp-co">Mozilla</div>
-      <div class="exp-r">Open Source Developer</div>
-      <div class="exp-tx">Open Source Contributor at MDN Web Docs — improving WebSocket and JavaScript API examples and documentation accuracy.</div>
-      <div class="tags"><span class="tag">Open Source</span><span class="tag">JavaScript</span><span class="tag">WebSockets</span></div>
-    </div>
-  </div>
-
-  <div class="exp rv">
-    <div class="exp-d">Sep 2025<br>Jan 2026</div>
-    <div>
-      <div class="exp-co">BaiT Analytics</div>
-      <div class="exp-r">Full Stack Developer · Intern</div>
-      <div class="exp-tx">Co-developed Rostr, a beginner-friendly fantasy baseball assistant that converts complex stats into simple recommendations. Contributed across the full build cycle — requirements through demo. Presented to a panel of industry leaders and iterated on feedback.</div>
-      <div class="tags"><span class="tag">Full Stack</span><span class="tag">Product</span><span class="tag">Startup</span></div>
-    </div>
-  </div>
-
-  <div class="exp rv">
-    <div class="exp-d">Jan 2025<br>Oct 2025</div>
-    <div>
-      <div class="exp-co">University of Toronto</div>
-      <div class="exp-r">Campus Events Ambassador</div>
-      <div class="exp-tx">Represented UofT at campus-wide events. Collaborated with large teams on event logistics and contributed to event creation from start to finish.</div>
-      <div class="tags"><span class="tag">Team Management</span><span class="tag">Event Planning</span></div>
-    </div>
-  </div>
-
-  <div class="exp rv">
-    <div class="exp-d">2019 – 2024</div>
-    <div>
-      <div class="exp-co">Royal Canadian Army Cadets</div>
-      <div class="exp-r">Sergeant Cadet · 5 years</div>
-      <div class="exp-tx">Marksmanship, army drills, annual trips to Canadian Army bases, government-hosted volunteer events, navigation and survival skills. Where I learned what real discipline and team pressure actually feel like.</div>
-      <div class="tags"><span class="tag">Leadership</span><span class="tag">Navigation</span><span class="tag">Volunteering</span></div>
-    </div>
+    <div class="foot">© 2026 Vriti Dahiya · built with ⚽ and late nights</div>
   </div>
 </section>
-
-</div><!-- /wrap -->
-
-<!-- ══ PIXEL STRIP ══ -->
-<div class="pstrip"><canvas id="stripCanvas"></canvas></div>
-
-<div class="wrap">
-
-<!-- ══ LOVES ══ -->
-<section class="sec" id="loves">
-  <div class="lbl">Things I Really Love</div>
-  <div class="loves">
-    <a class="love rv" href="https://www.realmadrid.com" target="_blank">
-      <div class="love-ic">⚽</div>
-      <div class="love-n">Soccer</div>
-      <div class="love-d">Real Madrid forever. Non-negotiable.</div>
-    </a>
-    <div class="love rv">
-      <div class="love-ic">🤠</div>
-      <div class="love-n">Country Music</div>
-      <div class="love-d">Morgan Wallen. 7 Summers is the song.</div>
-    </div>
-    <div class="love rv">
-      <div class="love-ic">📖</div>
-      <div class="love-n">Reading</div>
-      <div class="love-d">Currently: Project Hail Mary. Genuinely can't put it down.</div>
-    </div>
-    <div class="love rv">
-      <div class="love-ic">🌮</div>
-      <div class="love-n">Mexican Food</div>
-      <div class="love-d">Always. No notes.</div>
-    </div>
-    <div class="love rv">
-      <div class="love-ic">📺</div>
-      <div class="love-n">Big Bang Theory</div>
-      <div class="love-d">Rewatching it again. Still perfect.</div>
-    </div>
-    <div class="love rv">
-      <div class="love-ic">🔬</div>
-      <div class="love-n">Research</div>
-      <div class="love-d">What happens when ML meets how humans actually see.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ NOW ══ -->
-<section class="sec" id="now">
-  <div class="lbl">Right now</div>
-  <div class="now-grid">
-    <div class="nc rv">
-      <div class="nc-l">Building</div>
-      <div class="nc-v">ML pipelines @ BWLab</div>
-      <div class="nc-s">image aesthetics + memorability research</div>
-    </div>
-    <div class="nc rv">
-      <div class="nc-l">Contributing to</div>
-      <div class="nc-v">MDN Web Docs</div>
-      <div class="nc-s">WebSocket + JS API examples</div>
-    </div>
-    <div class="nc rv">
-      <div class="nc-l">Reading</div>
-      <div class="nc-v">Project Hail Mary</div>
-      <div class="nc-s">Andy Weir — can't stop, won't stop</div>
-    </div>
-    <div class="nc rv">
-      <div class="nc-l">On repeat</div>
-      <div class="nc-v">Morgan Wallen</div>
-      <div class="nc-s">7 Summers, forever</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CONTACT ══ -->
-<section class="sec" id="contact" style="border-bottom:none;">
-  <div class="contact-h rv">Let's<br>talk<span>.</span></div>
-  <div class="pills rv">
-    <a class="pill" href="https://github.com/vritid" target="_blank">GitHub ↗</a>
-    <a class="pill" href="https://www.linkedin.com/in/vriti-dahiya/" target="_blank">LinkedIn ↗</a>
-    <a class="pill" href="mailto:vritidahiya@cs.toronto.edu">vritidahiya@cs.toronto.edu ↗</a>
-  </div>
-  <div class="foot">© 2026 Vriti Dahiya &nbsp;·&nbsp; built with ⚽ and late nights</div>
-</section>
-
-</div>
 
 <script>
-// ──────────────────────────────────────────
-// PIXEL PALETTE
-// ──────────────────────────────────────────
-const SK='#c8885a',HR='#4a2c10',PK='#f472b6',SH='#7c3aed',
-      PT='#1e293b',SO='#111111',WH='#ffffff',TR='#bae6fd',_=null;
-
-// HEAD rows (16 wide)
-const HEAD=[
-  [_,_,_,_,HR,HR,HR,HR,HR,HR,HR,_,_,_,_,_],
-  [_,_,_,HR,HR,SK,SK,SK,SK,SK,HR,HR,_,_,_,_],
-  [_,_,_,HR,SK,SK,SK,SK,SK,SK,SK,HR,_,_,_,_],
-  [_,_,_,SK,PK,TR,PK,SK,PK,TR,PK,SK,_,_,_,_],
-  [_,_,_,SK,PK,TR,SK,SK,SK,TR,PK,SK,_,_,_,_],
-  [_,_,_,HR,SK,'#c06050',SK,SK,SK,SK,HR,_,_,_,_,_],
-  [_,_,_,_,HR,SK,SK,SK,SK,HR,_,_,_,_,_,_],
-  [_,_,_,_,_,SK,SK,SK,_,_,_,_,_,_,_,_],
-];
-// TORSO rows (16 wide)
-const TORSO=[
-  [_,_,SH,SH,SH,SH,SH,SH,SH,SH,SH,_,_,_,_,_],
-  [_,SH,SH,SH,SH,SH,SH,SH,SH,SH,SH,SH,_,_,_,_],
-  [_,SH,WH,SH,SH,SH,SH,SH,SH,SH,WH,SH,_,_,_,_],
-  [_,SH,SH,SH,SH,SH,SH,SH,SH,SH,SH,SH,_,_,_,_],
-  [_,PT,PT,PT,PT,PT,PT,PT,PT,PT,PT,PT,_,_,_,_],
-];
-// Walk leg frames (16 wide x 6 tall each)
-const LEGS=[
-  [[_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,PT,PT,PT,_,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,_,PT,PT,PT,_,_,_,_,_],
-   [SO,SO,SO,SO,_,_,_,_,_,SO,SO,SO,SO,_,_,_],
-   [SO,SO,SO,SO,_,_,_,_,_,SO,SO,SO,SO,_,_,_]],
-  [[_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,SO,SO,SO,SO,_,SO,SO,SO,SO,_,_,_,_,_,_],
-   [_,SO,SO,SO,SO,_,SO,SO,SO,SO,_,_,_,_,_,_]],
-  [[_,_,PT,PT,PT,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,_,PT,PT,PT,_,_,PT,PT,PT,_,_,_,_,_,_],
-   [_,PT,PT,PT,_,_,_,_,PT,PT,PT,_,_,_,_,_],
-   [_,_,SO,SO,SO,SO,_,_,SO,SO,SO,SO,_,_,_,_],
-   [_,_,SO,SO,SO,SO,_,_,SO,SO,SO,SO,_,_,_,_]],
-];
-
-// SOCCER BALL (10x10)
-const BALL=(()=>{const W=WH,B='#111',_=null;return[
-  [_,_,_,W,W,W,W,W,_,_],
-  [_,_,W,W,B,B,W,W,W,_],
-  [_,W,W,B,W,W,W,B,W,W],
-  [W,W,W,W,W,B,W,W,W,W],
-  [W,B,B,W,W,W,W,B,B,W],
-  [W,B,W,W,B,W,B,W,B,W],
-  [W,W,W,B,W,W,W,B,W,W],
-  [_,W,W,W,W,W,W,W,W,_],
-  [_,_,W,W,W,W,W,W,_,_],
-  [_,_,_,W,W,W,W,_,_,_],
-];})();
-
-function px(ctx,grid,ox,oy){
-  grid.forEach((row,y)=>row.forEach((c,x)=>{
-    if(c){ctx.fillStyle=c;ctx.fillRect(ox+x,oy+y,1,1);}
-  }));
-}
-function drawChar(ctx,lf,ox,oy){
-  ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-  px(ctx,HEAD,ox,oy);
-  px(ctx,TORSO,ox,oy+8);
-  px(ctx,LEGS[lf],ox,oy+13);
-}
-function drawBallOn(ctx,ox,oy){
-  BALL.forEach((r,y)=>r.forEach((c,x)=>{
-    if(c){ctx.fillStyle=c;ctx.fillRect(ox+x,oy+y,1,1);}
-  }));
-}
-
-// ──────────────────────────────────────────
-// LOADER
-// ──────────────────────────────────────────
-(()=>{
-  const lo=document.getElementById('loader');
-  const pEl=document.getElementById('lPct');
-  const fEl=document.getElementById('lFill');
-  const cCtx=document.getElementById('lChar').getContext('2d');
-  const bCtx=document.getElementById('lBall').getContext('2d');
-  let pct=0,cx=-20,lf=0,tick=0,done=false;
-
-  function step(){
-    tick++;
-    pct=Math.min(100,pct+Math.random()*2.2+.7);
-    pEl.textContent=Math.floor(pct)+'%';
-    fEl.style.width=pct+'%';
-    if(tick%7===0)lf=(lf+1)%3;
-    cx+=1.3;
-    const bx=cx+16+Math.sin(tick*.13)*3;
-    const by=Math.abs(Math.sin(tick*.17))*6;
-    document.getElementById('lChar').style.left=cx+'px';
-    document.getElementById('lBall').style.left=bx+'px';
-    document.getElementById('lBall').style.bottom=(1+by)+'px';
-    drawChar(cCtx,lf,0,0);
-    bCtx.clearRect(0,0,10,10);
-    drawBallOn(bCtx,0,0);
-    if(pct>=100&&cx>340){
-      if(!done){done=true;setTimeout(()=>{lo.classList.add('out');setTimeout(()=>lo.remove(),900);},200);}
-      return;
-    }
-    if(cx>340)cx=-20;
-    requestAnimationFrame(step);
-  }
-  step();
-})();
-
-// ──────────────────────────────────────────
-// HERO AVATAR — idle animation
-// ──────────────────────────────────────────
-(()=>{
-  const ctx=document.getElementById('avCanvas').getContext('2d');
-  let f=0,t=0;
-  function draw(){
-    drawChar(ctx,f,2,0);
-    t++;if(t%28===0)f=(f+1)%3;
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-// ──────────────────────────────────────────
-// PIXEL STRIP — bouncing soccer balls
-// ──────────────────────────────────────────
-(()=>{
-  const canvas=document.getElementById('stripCanvas');
-  const ctx=canvas.getContext('2d');
-  function resize(){
-    canvas.width=Math.ceil(window.innerWidth/2);
-    canvas.style.width=window.innerWidth+'px';
-    canvas.height=17;
-    canvas.style.height='34px';
-  }
-  resize();
-  window.addEventListener('resize',resize);
-  let off=0,t=0;
-  function draw(){
-    t++;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    const spacing=20;
-    for(let i=0;i<canvas.width/spacing+2;i++){
-      const bx=((i*spacing+off)%(canvas.width+spacing))-5;
-      const by=Math.abs(Math.sin((t*.14)+i*.9))*4;
-      BALL.forEach((r,y)=>r.forEach((c,x)=>{
-        if(c){
-          ctx.fillStyle=i%3===0?c:(i%3===1?'#ddd9d0':'#c8c4bc');
-          ctx.fillRect(Math.round(bx+x),Math.round(by+y),1,1);
-        }
-      }));
-    }
-    off=(off+.4)%spacing;
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-// ──────────────────────────────────────────
-// CURSOR
-// ──────────────────────────────────────────
-const curEl=document.getElementById('cur');
-document.addEventListener('mousemove',e=>{
-  curEl.style.left=e.clientX+'px';
-  curEl.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,.love,.nc,.pill,.exp').forEach(el=>{
-  el.addEventListener('mouseenter',()=>curEl.classList.add('big'));
-  el.addEventListener('mouseleave',()=>curEl.classList.remove('big'));
-});
-
-// ──────────────────────────────────────────
-// SCROLL REVEAL
-// ──────────────────────────────────────────
-const revObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
-},{threshold:.08});
-document.querySelectorAll('.rv').forEach((el,i)=>{
-  el.style.transitionDelay=(i%6*.07)+'s';
-  revObs.observe(el);
-});
-
-// ──────────────────────────────────────────
-// ACTIVE NAV
-// ──────────────────────────────────────────
-const secs=document.querySelectorAll('section[id]');
-const nls=document.querySelectorAll('.n-link');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-140)cur=s.id;});
-  nls.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+cur));
-},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
